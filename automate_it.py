@@ -13,8 +13,9 @@ import pyqtgraph as pg
 
 from selenium.webdriver.common.keys import Keys
 
-username = "44373388"
-password = "Morris"
+# These aren't sensitive credentials. . .
+username =
+password =
 module = 3
 question = 2
 delay = 2
@@ -322,7 +323,7 @@ class Worker(QThread):
         # chrome_options.add_argument("--headless")
         chrome_options.add_argument('log-level=3')
         driver = webdriver.Chrome(
-            'C:\\Users\\nicho\\PycharmProjects\\automate_it\\chromedriver\\chromedriver.exe',
+            CHROME DRIVER PATH,
             options=chrome_options)
 
         # query = "Testing this stuff"
