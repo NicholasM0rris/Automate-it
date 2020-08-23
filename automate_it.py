@@ -14,8 +14,8 @@ import pyqtgraph as pg
 from selenium.webdriver.common.keys import Keys
 
 # These aren't sensitive credentials. . .
-username =
-password =
+username = "44373388"
+password = "Morris"
 module = 3
 question = 2
 delay = 2
@@ -50,6 +50,7 @@ class GUI(QMainWindow):
         self.increment_doubleSpinBox = QtWidgets.QDoubleSpinBox(self.centralwidget)
         self.increment_doubleSpinBox.setGeometry(QtCore.QRect(222, 390, 145, 67))
         self.increment_doubleSpinBox.setSingleStep(0.01)
+        self.increment_doubleSpinBox.setMaximum(100000)
         self.increment_doubleSpinBox.setObjectName("increment_doubleSpinBox")
         self.username_lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.username_lineEdit.setGeometry(QtCore.QRect(136, 32, 321, 61))
@@ -237,7 +238,7 @@ def answer_question(d, gui):
         try:
 
             fields = d.find_elements_by_name("answer[]")
-            fields[0].send_keys(str(value))
+            fields[3].send_keys(str(value))
             submit = d.find_element_by_css_selector("input[type='submit']")
             submit.click()
 
@@ -253,8 +254,8 @@ def answer_question(d, gui):
                 passed = True
                 print("ANSWER: {}".format(value))
                 save_answer(value, module, question, True)
-                pg.exit()
-            elif 'INCORRECT!' in words:
+                break
+            elif 'INCORRECT.' in words:
                 print("{} was INCORRECT!".format(value))
                 time.sleep(random.uniform(0, delay))
                 reload_question(d)
@@ -323,7 +324,7 @@ class Worker(QThread):
         # chrome_options.add_argument("--headless")
         chrome_options.add_argument('log-level=3')
         driver = webdriver.Chrome(
-            CHROME DRIVER PATH,
+            'C:\\Users\\nicho\\PycharmProjects\\automate_it\\chromedriver\\chromedriver.exe',
             options=chrome_options)
 
         # query = "Testing this stuff"
